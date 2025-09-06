@@ -7,7 +7,7 @@ local function generate_absolute_path_for_project(path, slnpath)
   assert(path, "path cannot be nil")
   local base = vim.fs.normalize(vim.fn.getcwd())
   local dir = vim.fs.normalize(vim.fs.dirname(slnpath))
-  local res = vim.fs.normalize(polyfills.fs.joinpath(base, dir, vim.fs.normalize(path)))
+  local res = vim.fs.normalize(polyfills.fs.joinpath(base, dir, vim.fs.normalize(path, { win = true })))
   return res
 end
 
